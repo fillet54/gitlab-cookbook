@@ -1,6 +1,6 @@
 # gitlab cookbook
 
-Chef cookbook to setup gitlab v5.2 according to [these instructions](https://github.com/gitlabhq/gitlabhq/blob/v5.2.0/doc/install/installation.md).
+Chef cookbook to setup gitlab v5.3 according to [these instructions](https://github.com/gitlabhq/gitlabhq/blob/v5.3.0/doc/install/installation.md).
 
 # Requirements
 
