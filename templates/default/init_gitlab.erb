@@ -2,7 +2,7 @@
 
 # GITLAB
 # Maintainer: @randx
-# App Version: 5.1
+# App Version: 5.3
 
 ### BEGIN INIT INFO
 # Provides:          gitlab
@@ -24,14 +24,15 @@ rvm use 1.9.3
 
 APP_ROOT="<%= node['gitlab']['path'] %>"
 APP_USER="<%= node['gitlab']['user'] %>"
-DAEMON_OPTS="-C $APP_ROOT/config/puma.rb -e production"
+DAEMON_OPTS="-C $APP_ROOT/config/puma.rb"
 PID_PATH="$APP_ROOT/tmp/pids"
+SOCKET_PATH="$APP_ROOT/tmp/sockets"
 WEB_SERVER_PID="$PID_PATH/puma.pid"
 SIDEKIQ_PID="$PID_PATH/sidekiq.pid"
 STOP_SIDEKIQ="RAILS_ENV=production bundle exec rake sidekiq:stop"
 START_SIDEKIQ="RAILS_ENV=production bundle exec rake sidekiq:start"
 NAME="gitlab"
-DESC="Gitlab service"
+DESC="GitLab service"
 
 check_pid(){
   if [ -f $WEB_SERVER_PID ]; then
@@ -57,6 +58,7 @@ start() {
     exit 1
   else
     if [ `whoami` = root ]; then
+      execute "rm -f $SOCKET_PATH/gitlab.socket"
       execute "RAILS_ENV=production bundle exec puma $DAEMON_OPTS"
       execute "mkdir -p $PID_PATH && $START_SIDEKIQ  > /dev/null  2>&1 &"
       echo "$DESC started"

@@ -9,7 +9,7 @@ default['gitlab']['rails_env'] = 'production'
 default['gitlab']['repository'] = "https://github.com/gitlabhq/gitlabhq.git"
 # Set sync_repository to false for development (eg: when Vagrant handles syncing of the codebase)
 default['gitlab']['sync_repository'] = true
-default['gitlab']['revision'] = 'v5.2.0'
+default['gitlab']['revision'] = 'v5.3.0'
 default['gitlab']['shell_revision'] = 'v1.4.0'
 default['gitlab']['http_port'] = '80'
 default['gitlab']['https_port'] = '443'
