@@ -248,4 +248,6 @@ nginx_site "gitlab"
 # http://tickets.opscode.com/browse/CHEF-1621
 bash "Fix permisions" do
   code "chmod -R 755 #{node['gitlab']['home']}"
+  code "chmod -R ug+rwX,o-rwx #{node['gitlab']['repos_path']}"
+  code "chmod -R ug-s #{node['gitlab']['repos_path']}"
 end
