@@ -40,3 +40,13 @@ default['gitlab']['root']['password'] = '5iveL!fe'
 default['gitlab']['ssl'] = false
 default['gitlab']['ssl_crt_path'] = ''
 default['gitlab']['ssl_key_path'] = ''
+
+# LDAP configuration
+default['gitlab']['ldap']['enabled'] = false
+default['gitlab']['ldap']['host'] = 'localhost'
+default['gitlab']['ldap']['base'] = 'dc=localhost'
+default['gitlab']['ldap']['port'] = 636
+default['gitlab']['ldap']['uid'] = 'uid'
+default['gitlab']['ldap']['method'] = 'ssl'
+default['gitlab']['ldap']['bind_dn'] = 'uid=diradmin,dc=localhost'
+default['gitlab']['ldap']['password'] = 'ldappass'
