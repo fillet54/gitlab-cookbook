@@ -30,6 +30,9 @@ default['gitlab']['email_from'] = 'gitlab@localhost'
 default['gitlab']['support_email'] = 'support@localhost'
 default['gitlab']['socket'] = '/tmp/gitlab.socket'
 
+# Default Project Settings
+default['gitlab']['default_projects_limit'] = 10
+
 ## Root user
 default['gitlab']['root']['email'] = 'admin@local.host'
 default['gitlab']['root']['name'] = 'Administrator'

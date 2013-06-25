@@ -33,7 +33,7 @@ production: &base
     support_email: "<%= node['gitlab']['support_email'] %>"
 
     ## Project settings
-    default_projects_limit: 10
+    default_projects_limit: <%= node['gitlab']['default_projects_limit'] %>
     # signup_enabled: true          # default: false - Account passwords are not sent via the email if signup is enabled.
     # username_changing_enabled: false # default: true - User can change her username/namespace
 
